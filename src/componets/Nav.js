@@ -10,14 +10,14 @@ import trioLogo from "../images/trioLogo.svg";
 const Nav = () => {
     return (
         <div>
-            <nav className=" nav-bar">
+            <nav className="nav-bar">
                     
-                    <a href="#"> <img src={trioLogo} width={50} height={50} alt="logo"/></a>
-                    <a href="#"> <img src={youtube} width={50} height={50} alt="logo"/></a>
-                    <a href="#"> <img src={instagram} width={50} height={50} alt="logo"/></a>
-                    <a href="#"> <img src={github} width={50} height={50} alt="logo"/></a>
-                    <a href="#"> <img src={linkedin} width={50} height={50} alt="logo"/></a>
-                    <a href="#"> <img src={folder} width={50} height={50} alt="logo"/></a>
+            
+                    <a href="https://www.youtube.com/channel/UCcesTsu0RH9FxMKHbFh9RWA" fill="white"> <img src={youtube} width={50} height={50} className="docker-links" alt="logo"/></a>
+                    <a href="https://www.instagram.com/gwach_shop/"> <img src={instagram} width={50} height={50} className="docker-links"alt="logo"/></a>
+                    <a href="https://github.com/geekcoldhand"> <img src={github} width={50} height={50} className="docker-links"alt="logo"/></a>
+                    <a href="https://www.linkedin.com/in/horatious-harris-41970a159/"> <img src={linkedin} width={50} height={50} className="docker-links" alt="logo"/></a>
+                    <a href="#"> <img src={folder} width={50} height={50} className="docker-links"alt="logo"/></a>
             </nav>
         </div>
     );

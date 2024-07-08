@@ -19,7 +19,7 @@ const App = () => {
     setTimeout(() => {
       splash.style.display = 'none';
       mainContent.style.display = 'flex';
-    }, 3000); // 3000 milliseconds = 3 seconds
+    }, 2500); 
   }, []);
 
   return (
