@@ -9,9 +9,9 @@ const DragZone = () => {
   const [itemStateAndPosition, setItemStateAndPosition] = useState({});
 
     
-    let count = 0;
+    let count = 90;
     const alignItemPosition = (item) => {
-    count = count + 90;
+    count = count + 70;
     const container = containerRef.current;
     const containerBoundsRect = container.getBoundingClientRect();
     const maxY = containerBoundsRect.height - item.offsetHeight - count;
@@ -166,7 +166,12 @@ const DragZone = () => {
   }, []);
 
     return (
-        <div id="container" ref={containerRef}>
+      <div id="container" ref={containerRef}>
+        <div className='macos-button-box'>
+          <button className="macos-buttons red"></button>
+          <button className="macos-buttons green"></button>
+          <button className="macos-buttons yellow"></button>
+        </div>
         <img className="box" src={blueLogo} alt="logo" />
         <img className="box" src={redLogo} alt="logo" />
         <img className="box" src={orangeLogo} alt="logo" />
