@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/geekMedia/static/css/main.c93ea0c2.css",
-    "main.js": "/geekMedia/static/js/main.4abbee0d.js",
+    "main.css": "/geekMedia/static/css/main.0518751e.css",
+    "main.js": "/geekMedia/static/js/main.a93580bc.js",
     "static/media/windows.gif": "/geekMedia/static/media/windows.2abf947ca1d5a2b3ba8e.gif",
     "static/media/blueLogo.png": "/geekMedia/static/media/blueLogo.1b1e26078c459c84ed8a.png",
     "static/media/orangeLogo.png": "/geekMedia/static/media/orangeLogo.46720e3a8c6f99bf2bbe.png",
     "static/media/redLogo.png": "/geekMedia/static/media/redLogo.d2c5a757f6962789756d.png",
     "static/media/trioLogo.svg": "/geekMedia/static/media/trioLogo.20cf8146f7392c3a95677deffe7a2aca.svg",
     "static/media/logo.svg": "/geekMedia/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "static/media/instagram.svg": "/geekMedia/static/media/instagram.448198b22019bf2f0b71355b8346c675.svg",
-    "static/media/youtube.svg": "/geekMedia/static/media/youtube.d9c581b245bcdba35329889148aa872f.svg",
-    "static/media/github.svg": "/geekMedia/static/media/github.a2dcecaacdba94077f71818776dd805b.svg",
+    "static/media/instagram.svg": "/geekMedia/static/media/instagram.89e0c80329d9cb8f266dd0a9e79c80ff.svg",
+    "static/media/youtube.svg": "/geekMedia/static/media/youtube.41b2770fd5234536f8a18233227e21aa.svg",
     "index.html": "/geekMedia/index.html",
-    "static/media/linkedin.svg": "/geekMedia/static/media/linkedin.48c578785988bce75017d928a5dc8a14.svg",
-    "static/media/Folder.svg": "/geekMedia/static/media/Folder.5d9786ce248cbcf5087f6850fdb193a0.svg",
-    "main.c93ea0c2.css.map": "/geekMedia/static/css/main.c93ea0c2.css.map",
-    "main.4abbee0d.js.map": "/geekMedia/static/js/main.4abbee0d.js.map"
+    "static/media/github.svg": "/geekMedia/static/media/github.0e89bd9317fda971845d9ccb11a036f7.svg",
+    "static/media/linkedin.svg": "/geekMedia/static/media/linkedin.4b0d8e495a8e83a896ab55d12d08bcc5.svg",
+    "static/media/Folder.svg": "/geekMedia/static/media/Folder.d5724b61ebe8f3619cacb31a41f76cfb.svg",
+    "main.0518751e.css.map": "/geekMedia/static/css/main.0518751e.css.map",
+    "main.a93580bc.js.map": "/geekMedia/static/js/main.a93580bc.js.map"
   },
   "entrypoints": [
-    "static/css/main.c93ea0c2.css",
-    "static/js/main.4abbee0d.js"
+    "static/css/main.0518751e.css",
+    "static/js/main.a93580bc.js"
   ]
 }
