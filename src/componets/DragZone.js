@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-//import './DragZone.css'; // Assume this CSS file contains styles for .box and .grow-on-drag
+import blueLogo from '../images/blueLogo.png';
+import redLogo from '../images/redLogo.png';
+import orangeLogo from '../images/orangeLogo.png';
 
 const DragZone = () => {
   const containerRef = useRef(null);
@@ -9,7 +11,7 @@ const DragZone = () => {
     
     let count = 0;
     const alignItemPosition = (item) => {
-    count = count +90;
+    count = count + 90;
     const container = containerRef.current;
     const containerBoundsRect = container.getBoundingClientRect();
     const maxY = containerBoundsRect.height - item.offsetHeight - count;
@@ -165,9 +167,10 @@ const DragZone = () => {
 
     return (
         <div id="container" ref={containerRef}>
-        <div className="box">Box 1</div>
-        <div className="box">Box 2</div>
-        <div className="box">Box 3</div>
+        <img className="box" src={blueLogo} alt="logo" />
+        <img className="box" src={redLogo} alt="logo" />
+        <img className="box" src={orangeLogo} alt="logo" />
+       
         {/* Add more boxes as needed */}
       </div>
     );

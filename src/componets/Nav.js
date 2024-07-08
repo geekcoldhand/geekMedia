@@ -14,8 +14,6 @@ const Nav = () => {
                     > 
                         <img src={logo} className="nav-logo" alt="logo" />
                     </button>
-      
-                
             </nav>
         </div>
     );
