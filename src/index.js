@@ -6,6 +6,7 @@ import logo from "./images/logo.svg";
 import Nav from "./componets/Nav";
 import DragZone from "./componets/DragZone";
 import SplashPage from "./componets/SplashPage";
+import TopDock from "./componets/TopDock";
 
 
 
@@ -28,7 +29,8 @@ const App = () => {
         <SplashPage />
       </div>
       <div id="main-content" className="App hidden">
-        <header className="App-header"></header>
+        
+        <TopDock />
         <DragZone />
         <Nav />
       </div>
