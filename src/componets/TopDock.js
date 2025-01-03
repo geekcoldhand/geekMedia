@@ -3,15 +3,17 @@ import eyeglasses from "../images/eyeglasses.svg";
 
 const TopDock = () => {
 
-
+    let date = new Date().getUTCDate();
+    let day = new Date().getDay().toLocaleString();
+    let month = new Date().getMonth();
     return (
         <div className="top-dock">
             <div className="top-dock-right">
-            <img src={eyeglasses} alt="logo" className="top-dock-logo"/>
-                <span className="top-dock-text">Geek Media</span> 
+            <img src={eyeglasses} alt="logo" id="top-dock-logo"/>
             </div>
+                <span className="top-dock-text">Geek Media</span> 
             <div className="top-dock-left">
-                Mon, 25 Aug11:47 PM
+              Horatious Harris II
             </div>
         </div>
     );

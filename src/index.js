@@ -8,9 +8,6 @@ import DragZone from "./componets/DragZone";
 import SplashPage from "./componets/SplashPage";
 import TopDock from "./componets/TopDock";
 
-
-
-
 const App = () => {
   useEffect(() => {
     const splash = document.getElementById('splash');
@@ -20,7 +17,7 @@ const App = () => {
     setTimeout(() => {
       splash.style.display = 'none';
       mainContent.style.display = 'flex';
-    }, 2500); 
+    }, 1500); 
   }, []);
 
   return (
