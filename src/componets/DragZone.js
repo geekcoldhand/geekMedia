@@ -201,6 +201,8 @@ const DragZone = () => {
     container.addEventListener('mouseup', handleMouseUp);
     container.addEventListener('touchend', handleTouchEnd);
     addImageButtonRef.addEventListener('click', handleAddImage);
+    addImageButtonRef.addEventListener('touchstart', handleAddImage);
+
     
     // Remove event listeners when component unmounts
     dragItemsArray.current.forEach((item, index) => {
