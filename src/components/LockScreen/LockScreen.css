@@ -1,0 +1,12 @@
+#lock-screen{}
+
+.lock-screen-toggle:active{
+    background-color: #3d3d42;
+    color: whitesmoke;
+    display: flex;
+    width: 100%;
+}
+.lock-screen-toggle{
+    display: none;
+}
+    

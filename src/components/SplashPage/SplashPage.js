@@ -1,5 +1,5 @@
 import React from "react";
-import trioLogo from "../images/trioLogo.svg";
+import trioLogo from "../../images/trioLogo.svg";
 
 const SplashPage = () => {
     return (
