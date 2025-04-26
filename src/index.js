@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import {
 	createRoutesFromElements,
 	createBrowserRouter,
+	createHashRouter,
 	Route,
 	Router,
 	RouterProvider,
@@ -45,8 +46,8 @@ const App = () => {
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<>
-			<Route path="/geekMedia/" element={<LockScreen />} />
-			<Route path="/geekMedia/home" element={<App />} />
+			<Route path="geekMedia/" element={<LockScreen />} />
+			<Route path="geekMedia/home" element={<App />} />
 		</>
 	)
 );

@@ -1,8 +1,10 @@
 .user-icons-container {
-	margin-bottom: 32px;
+	margin-bottom: 3px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
 }
 .user-icon {
 	display: flex;
@@ -22,6 +24,7 @@
 
 .avatar-container {
 	position: relative;
+    background-color: aliceblue;
 	width: 64px;
 	height: 64px;
 	margin-bottom: 8px;
