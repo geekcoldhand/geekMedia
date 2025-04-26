@@ -11,7 +11,7 @@ cd "$TEMP_DIR"
 git init
 git remote add origin git@github.com:geekcoldhand/geekMedia.git
 git fetch origin prod
-git checkout prod
+git checkout -f prod
 
 
 git add .
