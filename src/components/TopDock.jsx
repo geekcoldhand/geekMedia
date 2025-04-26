@@ -8,7 +8,7 @@ const TopDock = () => {
     return (
         <div className="top-dock">
             <div className="top-dock-right">
-                <Link to="/geekMedia/">
+                <Link to="/">
                 <img src={eyeglasses} alt="logo" id="top-dock-logo" />
                 </Link>
                 <div className="top-dock-date">
