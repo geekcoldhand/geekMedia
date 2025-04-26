@@ -1,7 +1,15 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
+import {
+	createRoutesFromElements,
+	createBrowserRouter,
+	Route,
+	Router,
+	RouterProvider,
+	Routes,
+} from "react-router-dom";
 import "./index.css";
-import  LockScreen  from "./components/LockScreen/LockScreen";
+import LockScreen from "./components/LockScreen/LockScreen";
 import Nav from "./components/Nav";
 import DragZone from "./components/DragZone/DragZone";
 import SplashPage from "./components/SplashPage/SplashPage";
@@ -25,23 +33,27 @@ const App = () => {
 		<div>
 			<div id="splash" className="splash-container">
 				<SplashPage />
-				<LockScreen />
 			</div>
 			<div id="main-content" className="App hidden">
 				<TopDock />
-				<DragZone />
+				<DragZone></DragZone>
 				<Nav />
 			</div>
 		</div>
 	);
 };
-
-//const root = ReactDOM.createRoot(document.getElementById('root'));
-const root = ReactDOM.createRoot(
-	document.getElementById("root") 
+const router = createBrowserRouter(
+	createRoutesFromElements(
+		<>
+			<Route path="/geekMedia/" element={<LockScreen />} />
+			<Route path="/geekMedia/home" element={<App />} />
+		</>
+	)
 );
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<App />
+		<RouterProvider router={router} />
 	</React.StrictMode>
 );

@@ -12,8 +12,9 @@ const DragZone = () => {
   let touchedOrClicked = false;
   let itemWasDragged = false;
   
+  let pixelSpacing = 90;
+  let verticalSpace = 100;
   const loadDragItemToTop = (loadItem) => {
-    let pixelSpacing = 190;
     if (!loadItem) {
       console.error("Item not found in alignItemPosition.");
       return;
@@ -24,7 +25,10 @@ const DragZone = () => {
     const maxY =
       containerBoundsRect.height - loadItem.offsetHeight - pixelSpacing;
 
-    loadItem.style.top = `${maxY}px`;
+
+    loadItem.style.top = `${verticalSpace}px`;
+    loadItem.style.left = "20px";
+    verticalSpace += 90;
   };
 
   const populateBoxesWithDelay = () => {
@@ -39,6 +43,7 @@ const DragZone = () => {
 
   const handleAddMetaDataHelper = (e) => {
     e.preventDefault();
+    console.log("handle meta daas funciton boiiii")
     // window.open('https://');
   };
 
@@ -46,7 +51,7 @@ const DragZone = () => {
     e.preventDefault();
     touchedOrClicked = true;
     moved = false;
-    //item.classList.add('grow-on-drag');
+
     startDrag(e.clientX, e.clientY, index, item);
   };
 
@@ -54,7 +59,6 @@ const DragZone = () => {
     e.preventDefault();
     touchedOrClicked = true;
     moved = false;
-    //item.classList.add('grow-on-drag');
     startDrag(e.touches[0].clientX, e.touches[0].clientY, index, item);
   };
 
@@ -94,10 +98,10 @@ const DragZone = () => {
   };
 
   useEffect(() => {
-    // Initialize refs array with the correct length
+    
     dragItemsRef.current = dragItemsRef.current.slice(0, projectContext.length);
     
-    // Wait for DOM elements to be available
+    
     setTimeout(() => {
       populateBoxesWithDelay();
     }, 100);
@@ -150,6 +154,11 @@ const DragZone = () => {
       touchedOrClicked = false;
     };
 
+    const handleDoubleClick = (e) => {
+      handleAddMetaDataHelper(e);
+      
+    }
+
     container?.addEventListener("mousemove", handleMouseMove);
     container?.addEventListener("touchmove", handleTouchMove);
     container?.addEventListener("mouseup", handleMouseUp);
@@ -158,6 +167,9 @@ const DragZone = () => {
     const addEventListeners = () => {
       dragItemsRef.current.forEach((item, index) => {
         if (item) {
+          item.addEventListener("dblclick", (e) =>
+            handleDoubleClick(e, index, item)
+          );
           item.addEventListener("mousedown", (e) =>
             handleMouseDown(e, index, item)
           );
@@ -178,6 +190,9 @@ const DragZone = () => {
 
       dragItemsRef.current.forEach((item, index) => {
         if (item) {
+          item.removeEventListener("dblclick", (e) =>
+            handleDoubleClick(e, index, item)
+          );
           item.removeEventListener("mousedown", (e) =>
             handleMouseDown(e, index, item)
           );
@@ -204,7 +219,7 @@ const DragZone = () => {
           key={index}
           className="draggable-item"
           ref={el => dragItemsRef.current[index] = el}
-          style={{ position: 'absolute', cursor: 'move' }}
+			  style={{ position: 'absolute' }}
         >
           <img
             src={project.image}

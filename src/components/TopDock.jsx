@@ -1,15 +1,16 @@
 import react from "react";
 import eyeglasses from "../images/eyeglasses.svg";
+import { Link } from "react-router";
+
 
 const TopDock = () => {
-
-    let date = new Date().getFullYear();
-    let day = new Date().getDay().toLocaleString();
-    let month = new Date().toDateString();
+    const month = new Date().toDateString();
     return (
         <div className="top-dock">
             <div className="top-dock-right">
+                <Link to="/geekMedia/">
                 <img src={eyeglasses} alt="logo" id="top-dock-logo" />
+                </Link>
                 <div className="top-dock-date">
                     { " " + month }
                 </div>

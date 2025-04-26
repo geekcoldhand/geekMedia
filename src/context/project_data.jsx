@@ -4,12 +4,12 @@ import orangeLogo from "../images/orangeLogo.png"
 
 const projectData = [
     {
-        name: "AI Agent Chatroom",
+        name: "Atom Chat",
         description: "",
         image: orangeLogo,
         link: ""
     },    {
-        name: "GWACH e-commerece site",
+        name: "GWACH e-comm",
         description: "Stripe, Next.Js",
         image: blueLogo,
         link: ""
