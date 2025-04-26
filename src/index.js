@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import {
 	createRoutesFromElements,
 	createBrowserRouter,
+	createHashRouter,
 	Route,
 	Router,
 	RouterProvider,
@@ -42,11 +43,11 @@ const App = () => {
 		</div>
 	);
 };
-const router = createBrowserRouter(
+const router = createHashRouter(
 	createRoutesFromElements(
 		<>
-			<Route path="/geekMedia/" element={<LockScreen />} />
-			<Route path="/geekMedia/home" element={<App />} />
+			<Route path="/" element={<LockScreen />} />
+			<Route path="/home" element={<App />} />
 		</>
 	)
 );

@@ -210,9 +210,9 @@ const DragZone = () => {
         <button className="macos-buttons red"></button>
         <button className="macos-buttons green"></button>
         <button className="macos-buttons yellow"></button>
-        <span className="macos-text"> Featured Projects</span>
+        <span> </span>
+        <span className="macos-text"> Projects</span>
       </div>
-      <button id="add-image-button">Add Image</button>
       
       {projectContext.map((project, index) => (
         <div 

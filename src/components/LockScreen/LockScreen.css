@@ -3,6 +3,7 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, #1a64a0, #0a4c8a);
+  background: linear-gradient(to bottom, #a6a8aa, #a4a5a6);
   /* Vertical pinstripes */
   background-image: linear-gradient(to bottom, #1a64a0, #0a4c8a),
     repeating-linear-gradient(
@@ -98,11 +99,14 @@
   }
   
   .login-panel {
-    width: 400px;
+    width: 87vw;
+    max-width: 700px;
+    height: 68vh;
     border-radius: 16px;
     padding: 32px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     background: rgba(255, 255, 255, 0.308);
     backdrop-filter: blur(10px);

@@ -41,7 +41,7 @@ export default function LockScreen() {
 
 					{selectedUser && (
 						<div className="login-button-container">
-							<Link to="/geekMedia/home">
+							<Link to="/home">
 								<button className="login-button">Login</button>
 								
 							</Link>
