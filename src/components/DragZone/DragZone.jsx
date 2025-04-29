@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-import projectData from "../../context/project_data";
+import { useUserContext } from "../../context/UserContext";
 import "./DragZone.css";
 
 
 
 const DragZone = () => {
+  const { projects } = useUserContext();
   const containerRef = useRef(null);
   const dragItemsRef = useRef([]);
   const [itemStateAndPosition, setItemStateAndPosition] = useState({});
-  const [projectContext, setProjectContext] = useState(projectData);
+  const [projectContext, setProjectContext] = useState(projects);
 
   let moved = false;
   let touchedOrClicked = false;

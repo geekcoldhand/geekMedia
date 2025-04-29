@@ -1,9 +1,8 @@
 import React, { createContext, useContext, useState } from "react";
 
-// Create the context
+
 const UserContext = createContext();
 
-// Custom hook for using the context
 export function useUserContext() {
   const context = useContext(UserContext);
   if (context === undefined) {
@@ -11,13 +10,15 @@ export function useUserContext() {
   }
   return context;
 }
-
 export function UserProvider({ children }) {
-  const [user, setUser] = useState("");
+    const [user, setUser] = useState("");
+    const [projects, setProjects] = useState([]);
   
   const value = {
     user,
-    setUser
+    setUser,
+    projects,
+    setProjects
   };
   
   return (
