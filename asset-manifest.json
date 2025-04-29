@@ -1,11 +1,13 @@
 {
   "files": {
-    "main.css": "/geekMedia/static/css/main.d694b606.css",
-    "main.js": "/geekMedia/static/js/main.d7c91069.js",
+    "main.css": "/geekMedia/static/css/main.64c87040.css",
+    "main.js": "/geekMedia/static/js/main.69b42a53.js",
     "static/media/windows.gif": "/geekMedia/static/media/windows.2abf947ca1d5a2b3ba8e.gif",
     "static/media/blueLogo.png": "/geekMedia/static/media/blueLogo.1b1e26078c459c84ed8a.png",
     "static/media/orangeLogo.png": "/geekMedia/static/media/orangeLogo.46720e3a8c6f99bf2bbe.png",
     "static/media/redLogo.png": "/geekMedia/static/media/redLogo.d2c5a757f6962789756d.png",
+    "static/media/iconY2k.png": "/geekMedia/static/media/iconY2k.ffb24a85baa9d288c0e4.png",
+    "static/media/A_Logo.png": "/geekMedia/static/media/A_Logo.5b47f8791cc470a66861.png",
     "static/media/trioLogo.svg": "/geekMedia/static/media/trioLogo.20cf8146f7392c3a95677deffe7a2aca.svg",
     "static/media/instagram.svg": "/geekMedia/static/media/instagram.89e0c80329d9cb8f266dd0a9e79c80ff.svg",
     "static/media/youtube.svg": "/geekMedia/static/media/youtube.41b2770fd5234536f8a18233227e21aa.svg",
@@ -14,11 +16,11 @@
     "static/media/linkedin.svg": "/geekMedia/static/media/linkedin.4b0d8e495a8e83a896ab55d12d08bcc5.svg",
     "static/media/Folder.svg": "/geekMedia/static/media/Folder.d5724b61ebe8f3619cacb31a41f76cfb.svg",
     "static/media/eyeglasses.svg": "/geekMedia/static/media/eyeglasses.0ca4e9a43261efffdcce2762aa9d3347.svg",
-    "main.d694b606.css.map": "/geekMedia/static/css/main.d694b606.css.map",
-    "main.d7c91069.js.map": "/geekMedia/static/js/main.d7c91069.js.map"
+    "main.64c87040.css.map": "/geekMedia/static/css/main.64c87040.css.map",
+    "main.69b42a53.js.map": "/geekMedia/static/js/main.69b42a53.js.map"
   },
   "entrypoints": [
-    "static/css/main.d694b606.css",
-    "static/js/main.d7c91069.js"
+    "static/css/main.64c87040.css",
+    "static/js/main.69b42a53.js"
   ]
 }
