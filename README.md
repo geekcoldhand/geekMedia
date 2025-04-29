@@ -3,7 +3,7 @@ Geek Media
 Offical media site linking a network of differnt projects and their respective domains.. A React app.
 
 ## 🔗 Live Site
-[geek-media.github.io/geekMedia](https://geek-media.github.io/geekMedia)
+[geek-media.github.io/geekMedia](https://geekcoldhand.github.io/geekMedia/)
 
 ## 📜 Scripts
 - `npm start` – Run locally

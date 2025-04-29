@@ -13,6 +13,7 @@ import "./index.css";
 import LockScreen from "./components/LockScreen/LockScreen";
 import Nav from "./components/Nav";
 import DragZone from "./components/DragZone/DragZone";
+import UserProvider from "./context/UserContext";
 import SplashPage from "./components/SplashPage/SplashPage";
 import TopDock from "./components/TopDock";
 
@@ -37,7 +38,7 @@ const App = () => {
 			</div>
 			<div id="main-content" className="App hidden">
 				<TopDock />
-				<DragZone></DragZone>
+				<DragZone />
 				<Nav />
 			</div>
 		</div>
@@ -55,6 +56,8 @@ const router = createHashRouter(
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<UserProvider>
+			<RouterProvider router={router} />
+		</UserProvider>
 	</React.StrictMode>
 );

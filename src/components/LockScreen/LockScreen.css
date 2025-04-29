@@ -92,6 +92,8 @@
   }
   
   .apple-logo-small {
+    height: 2rem;
+    width: auto;
   }
   
   .apple-logo-small img {
@@ -145,10 +147,15 @@
     font-size: 14px;
     font-family: "Lucida Grande", sans-serif;
   }
-  
+  .login-panel-hr{
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2)
+  }
   .system-info {
     position: absolute;
-    bottom: 16px;
+    bottom: 47px;
     right: 16px;
     color: rgba(255, 255, 255, 0.5);
     font-size: 12px;

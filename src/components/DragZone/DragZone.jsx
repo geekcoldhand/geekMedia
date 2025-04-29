@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import projectData from "../../context/project_data";
 import "./DragZone.css";
 
+
+
 const DragZone = () => {
   const containerRef = useRef(null);
   const dragItemsRef = useRef([]);
