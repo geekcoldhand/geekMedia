@@ -13,7 +13,7 @@ import stalkerProjectData from "../../context/project_data";
 const users = [
 	{ id: 1, name: "Recruiter", avatar: "" },
 	{ id: 2, name: "Designers", avatar: "" },
-	{ id: 3, name: "Stalkers", avatar: "" },
+	{ id: 3, name: "Visitors", avatar: "" },
 ];
 const month = new Date().toDateString();
 export default function LockScreen() {
@@ -38,22 +38,21 @@ export default function LockScreen() {
 				break;
 		}
 		
-		console.log("user: ", user);
+		
 		navigate("/home");
 	};
 	useEffect(() => {
-		console.log("user updated:", user);
+		
 	}, [user]);
 	
 	return (
 		<div className="macosx-bg">
-			{/* <img src={logo} alt="Logo" className="macosx-bg-logo" draggable="false" /> */}
 
 			<div className="login-panel-container">
 				<div className="login-panel">
-					<div className="apple-logo-small">
-						<img src={logo} alt="Apple Logo" width={80} priority />
-					</div>
+					<p className="login-panel-title">Welcome! </p>
+					<p className="login-panel-title">Choose your role to explore the right portfolio</p>
+				
 					<hr className="login-panel-hr"></hr>
 					<div className="user-icons-container">
 						{users.map((user) => (
@@ -77,7 +76,7 @@ export default function LockScreen() {
 					<hr className="login-panel-hr"></hr>
 
 					{!selectedUser && (
-						<p className="select-user-text">Select a user to login</p>
+						<p className="select-user-text">Horatious Harris II</p>
 					)}
 				</div>
 

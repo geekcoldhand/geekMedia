@@ -90,6 +90,12 @@
     align-items: center;
     justify-content: center;
   }
+  .login-panel-title{
+    font-size: 1.2rem;
+    color: whitesmoke;
+    font-family: "Lucida Grande", sans-serif;
+    text-align: center;
+  }
   
   .apple-logo-small {
     height: 2rem;
