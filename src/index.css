@@ -146,6 +146,8 @@ code {
 #top-dock-logo {
 	margin-inline: 0.5rem;
 	fill: white;
+	display: flex;
+	align-items: center;
 }
 .top-dock-text {
 	font-weight: 800;
@@ -155,7 +157,6 @@ code {
 	align-items: center;
 	width: 4rem;
 	margin-inline: 1rem;
-	padding-bottom: 0.2rem;
 	font-weight: 500;
 	color: whitesmoke;
 }
@@ -194,7 +195,9 @@ code {
 		width: 24px;
 		height: 30px;
 	}
-
+	.box{
+		width: 60px;
+	}
 	.macos-text {
 		font-size: 10px;
 		white-space: nowrap;

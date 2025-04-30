@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./LockScreen.css";
-import logo from "../../images/redLogo.png";
 import { UserIcon } from "../UserIcon/UserIcon";
 import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/UserContext";
 import softwareProjectData from "../../context/project_data";
-import designerProjectData from "../../context/project_data";
-import stalkerProjectData from "../../context/project_data";
+import designerProjectData from "../../context/fashion_designer_data";
+import stalkerProjectData from "../../context/stalker_data";
 
 
 const users = [
-	{ id: 1, name: "Recruiter", avatar: "" },
+	{ id: 1, name: "Recruiters", avatar: "" },
 	{ id: 2, name: "Designers", avatar: "" },
 	{ id: 3, name: "Visitors", avatar: "" },
 ];

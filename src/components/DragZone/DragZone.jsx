@@ -44,8 +44,9 @@ const populateBoxesWithDelay = () => {
 
 const handleAddMetaDataHelper = (e) => {
   e.preventDefault();
-  console.log("handle meta data function");
-  // window.open('https://');
+  if(!e.target) return;
+  console.log("handle meta data function", e.target.dataset.link);
+   window.open(e.target.dataset.link);
 };
 
 const handleMouseDown = (e, index, item) => {
@@ -180,9 +181,7 @@ useEffect(() => {
   const addEventListeners = () => {
     dragItemsRef.current.forEach((item, index) => {
       if (item) {
-        item.addEventListener("dblclick", (e) =>
-          handleDoubleClick(e, index, item)
-        );
+
         item.addEventListener("mousedown", (e) =>
           handleMouseDown(e, index, item)
         );
@@ -203,9 +202,7 @@ useEffect(() => {
 
     dragItemsRef.current.forEach((item, index) => {
       if (item) {
-        item.removeEventListener("dblclick", (e) =>
-          handleDoubleClick(e, index, item)
-        );
+   
         item.removeEventListener("mousedown", (e) =>
           handleMouseDown(e, index, item)
         );
@@ -238,6 +235,7 @@ return (
           src={project.image}
           alt={project.title || `Project ${index + 1}`}
           className="box project-image"
+          data-link={project.link}
         />
         {project.name && <div className="project-title">{project.name}</div>}
       </div>

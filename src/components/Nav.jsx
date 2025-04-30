@@ -1,9 +1,9 @@
 import React from "react";
-import linkedin from "../images/linkedin.svg";
-import youtube from "../images/youtube.svg";
-import instagram from "../images/instagram.svg";
-import folder from "../images/Folder.svg";
-import github from "../images/github.svg";
+import linkedin from "../images/Icons/linkedin.svg";
+import youtube from "../images/Icons/youtube.svg";
+import instagram from "../images/Icons/instagram.svg";
+import folder from "../images/Icons/Folder.svg";
+import github from "../images/Icons/github.svg";
 
 const Nav = () => {
     return (
