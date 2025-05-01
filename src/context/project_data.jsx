@@ -1,6 +1,6 @@
 import blueLogo from "../images/Logos/whiteAtom.svg";
 import atomLogo from "../images/A_Logo.png";
-import iconY2k from "../images/iconY2k.png"
+import whosApp from "../images/Icons/whoIcon.png";
 
 const projectData = [
     {
@@ -14,9 +14,9 @@ const projectData = [
         image: blueLogo,
         link: "https://geek-with-a-cold-hand.vercel.app/"
     },    {
-        name: "Y2K Wash",
-        description: "AWS, Next.js, ",
-        image: iconY2k,
+        name: "Who's App",
+        description: "Socket.io, Next.js, Vercel",
+        image: whosApp,
         link: ""
     },    
       

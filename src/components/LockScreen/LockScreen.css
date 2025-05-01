@@ -98,8 +98,9 @@
   }
   
   .apple-logo-small {
-    height: 2rem;
+    height: 4rem;
     width: auto;
+    animation: Wiggle infinite .4s linear;
   }
   
   .apple-logo-small img {
@@ -166,5 +167,9 @@
     color: rgba(255, 255, 255, 0.5);
     font-size: 12px;
     font-family: "Lucida Grande", sans-serif;
+  }
+  
+  @keyframes Wiggle {
+   
   }
   

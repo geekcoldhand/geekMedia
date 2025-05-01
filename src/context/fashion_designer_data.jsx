@@ -1,20 +1,24 @@
+import whiteLogo from "../images/Logos/whiteAtom.svg";
+import wisdom from "../images/Icons/saturn.png"
+import iconY2k from "../images/iconY2k.png"
+
 
 const projectData = [
     {
-        name: "",
-        description: "",
-        image: "",
-        link: ""
+        name: "GWACH Shop",
+        description: "Stripe, Next.Js",
+        image: whiteLogo,
+        link: "https://geek-with-a-cold-hand.vercel.app/"
     },    {
-        name: "",
-        description: "",
-        image: "",
-        link: ""
+        name: "Wisdom",
+        description: "React,Js",
+        image: wisdom,
+        link: "https://geekcoldhand.github.io/WisdomATL/"
     },    {
-        name: "",
-        description: " ",
-        image: "",
-        link: ""
+        name: "Y2K Wash",
+        description: "AWS, Next.js, ",
+        image: iconY2k,
+        link: "https://geekcoldhand.github.io/Future-Filter/"
     },    
       
 

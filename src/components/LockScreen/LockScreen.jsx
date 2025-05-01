@@ -7,12 +7,13 @@ import { useUserContext } from "../../context/UserContext";
 import softwareProjectData from "../../context/project_data";
 import designerProjectData from "../../context/fashion_designer_data";
 import stalkerProjectData from "../../context/stalker_data";
+import macLogo from "../../images/Icons/macLogo.png";
 
 
 const users = [
 	{ id: 1, name: "Recruiters", avatar: "" },
 	{ id: 2, name: "Designers", avatar: "" },
-	{ id: 3, name: "Visitors", avatar: "" },
+	{ id: 3, name: "About Me", avatar: "" },
 ];
 const month = new Date().toDateString();
 export default function LockScreen() {
@@ -50,6 +51,7 @@ export default function LockScreen() {
 			<div className="login-panel-container">
 				<div className="login-panel">
 					<p className="login-panel-title">Welcome! </p>
+					<img src={macLogo} alt="" className="apple-logo-small" />
 					<p className="login-panel-title">Choose your role to explore the right portfolio</p>
 				
 					<hr className="login-panel-hr"></hr>

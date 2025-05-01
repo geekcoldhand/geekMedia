@@ -7,14 +7,14 @@ const projectData = [
         image: headshot,
         link: ""
     },    {
-        name: "",
+        name: "Software",
         description: "",
-        image: "",
+        image: headshot,
         link: ""
     },    {
-        name: "",
+        name: "Fashion",
         description: " ",
-        image: "",
+        image: headshot,
         link: ""
     },    
       
