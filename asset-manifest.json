@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/geekMedia/static/css/main.be0c9e71.css",
-    "main.js": "/geekMedia/static/js/main.8e60827b.js",
+    "main.js": "/geekMedia/static/js/main.85e36a63.js",
     "static/media/windows.gif": "/geekMedia/static/media/windows.2abf947ca1d5a2b3ba8e.gif",
     "static/media/headshot.png": "/geekMedia/static/media/headshot.d28cd77a0abd90e6b12a.png",
     "static/media/macLogo.png": "/geekMedia/static/media/macLogo.ecedcbdc8124a8c4bbd6.png",
@@ -18,10 +18,10 @@
     "static/media/linkedin.svg": "/geekMedia/static/media/linkedin.4b0d8e495a8e83a896ab55d12d08bcc5.svg",
     "static/media/Folder.svg": "/geekMedia/static/media/Folder.d5724b61ebe8f3619cacb31a41f76cfb.svg",
     "main.be0c9e71.css.map": "/geekMedia/static/css/main.be0c9e71.css.map",
-    "main.8e60827b.js.map": "/geekMedia/static/js/main.8e60827b.js.map"
+    "main.85e36a63.js.map": "/geekMedia/static/js/main.85e36a63.js.map"
   },
   "entrypoints": [
     "static/css/main.be0c9e71.css",
-    "static/js/main.8e60827b.js"
+    "static/js/main.85e36a63.js"
   ]
 }
