@@ -7,7 +7,7 @@ const projectData = [
         name: "Atom AI",
         description: "",
         image: atomLogo,
-        link: ""
+        link: "https://github.com/geekcoldhand/Agent-Atom-/tree/main/agent-atom"
     },    {
         name: "GWACH Shop",
         description: "Stripe, Next.Js",
@@ -17,7 +17,7 @@ const projectData = [
         name: "Who's App",
         description: "Socket.io, Next.js, Vercel",
         image: whosApp,
-        link: ""
+        link: "https://github.com/geekcoldhand/Whos-App"
     },    
       
 

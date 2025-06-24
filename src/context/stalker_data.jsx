@@ -5,17 +5,17 @@ const projectData = [
         name: "About Me",
         description: "",
         image: headshot,
-        link: ""
+        link: "https://medium.com/@horatiousaharris/about"
     },    {
-        name: "Software",
+        name: "Substack",
         description: "",
         image: headshot,
-        link: ""
+        link: "https://substack.com/@geekwithacoldhand/posts"
     },    {
-        name: "Fashion",
-        description: " ",
+        name: "Medium",
+        description: "",
         image: headshot,
-        link: ""
+        link: "https://medium.com/@horatiousaharris"
     },    
       
 
