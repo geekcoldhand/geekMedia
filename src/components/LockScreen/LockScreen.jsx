@@ -13,7 +13,7 @@ import macLogo from "../../images/Icons/macLogo.png";
 const users = [
 	{ id: 1, name: "Software", avatar: "" },
 	{ id: 2, name: "Design", avatar: "" },
-	{ id: 3, name: "About Me", avatar: "" },
+	{ id: 3, name: "About", avatar: "" },
 ];
 const month = new Date().toDateString();
 export default function LockScreen() {
@@ -52,7 +52,7 @@ export default function LockScreen() {
 				<div className="login-panel">
 					<p className="login-panel-title">Welcome! </p>
 					<img src={macLogo} alt="" className="apple-logo-small" />
-					<p className="login-panel-title">Choose a domain to learn more about Horatious</p>
+					<p className="login-panel-title">Choose a domain to learn more about me</p>
 				
 					<hr className="login-panel-hr"></hr>
 					<div className="user-icons-container">

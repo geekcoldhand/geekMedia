@@ -18,7 +18,7 @@ const projectData = [
         name: "Y2K Wash",
         description: "AWS, Next.js, ",
         image: iconY2k,
-        link: "https://geekcoldhand.github.io/Future-Filter/"
+        link: "https://github.com/geekcoldhand/Future-Filter"
     },    
       
 
