@@ -12,7 +12,7 @@ import macLogo from "../../images/Icons/macLogo.png";
 
 const users = [
 	{ id: 1, name: "Software", avatar: "" },
-	{ id: 2, name: "Design", avatar: "" },
+	{ id: 2, name: "Fashion", avatar: "" },
 	{ id: 3, name: "About", avatar: "" },
 ];
 const month = new Date().toDateString();
