@@ -7,8 +7,6 @@ import { useUserContext } from "../../context/UserContext";
 import softwareProjectData from "../../context/project_data";
 import designerProjectData from "../../context/fashion_designer_data";
 import stalkerProjectData from "../../context/stalker_data";
-import macLogo from "../../images/Icons/macLogo.png";
-
 
 const users = [
 	{ id: 1, name: "Software", avatar: "" },
@@ -18,7 +16,7 @@ const users = [
 const month = new Date().toDateString();
 export default function LockScreen() {
 	const navigate = useNavigate();
-	const {user, setUser, setProjects} = useUserContext();
+	const { user, setUser, setProjects } = useUserContext();
 	const [selectedUser, setSelectedUser] = useState(null);
 
 	const handleLogin = (e) => {
@@ -37,23 +35,25 @@ export default function LockScreen() {
 			default:
 				break;
 		}
-		
-		
+
 		navigate("/home");
 	};
-	useEffect(() => {
-		
-	}, [user]);
-	
+	useEffect(() => {}, [user]);
+
 	return (
 		<div className="macosx-bg">
-
 			<div className="login-panel-container">
 				<div className="login-panel">
 					<p className="login-panel-title">Welcome! </p>
-					<img src={macLogo} alt="" className="apple-logo-small" />
-					<p className="login-panel-title">Choose a domain to learn more about me</p>
-				
+					<img
+						src={`${process.env.PUBLIC_URL}/images/Icons/macLogo.png`}
+						alt=""
+						className="apple-logo-small"
+					/>
+					<p className="login-panel-title">
+						Choose a domain to learn more about me
+					</p>
+
 					<hr className="login-panel-hr"></hr>
 					<div className="user-icons-container">
 						{users.map((user) => (
@@ -70,7 +70,9 @@ export default function LockScreen() {
 					{selectedUser && (
 						<div className="login-button-container">
 							<Link to="/home">
-								<button className="login-button" onClick={handleLogin}>Login</button>
+								<button className="login-button" onClick={handleLogin}>
+									Login
+								</button>
 							</Link>
 						</div>
 					)}

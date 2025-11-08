@@ -1,5 +1,3 @@
-import headshot from "../images/Icons/headshot.png";
-
 const projectData = [
 	{
 		name: "About Me",
@@ -10,13 +8,13 @@ const projectData = [
 	{
 		name: "Substack",
 		description: "",
-		image: headshot,
+		image: `${process.env.PUBLIC_URL}/images/Icons/headshot.png`,
 		link: "https://substack.com/@geekwithacoldhand",
 	},
 	{
 		name: "Medium",
 		description: "",
-		image: headshot,
+		image: `${process.env.PUBLIC_URL}/images/Icons/headshot.png`,
 		link: "https://medium.com/@horatiousaharris",
 	},
 ];
