@@ -11,11 +11,11 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import LockScreen from "./components/LockScreen/LockScreen";
-import Nav from "./components/Nav";
+import Nav from "./components/Navigation/Nav";
 import DragZone from "./components/DragZone/DragZone";
 import UserProvider from "./context/UserContext";
 import SplashPage from "./components/SplashPage/SplashPage";
-import TopDock from "./components/TopDock";
+import TopDock from "./components/Navigation/TopDock";
 
 const App = () => {
 	useEffect(() => {
