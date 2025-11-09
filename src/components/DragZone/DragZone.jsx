@@ -4,16 +4,18 @@ import { useDragContext } from "../../context/DragContext";
 import "./DragZone.css";
 
 const DragZone = () => {
-  const { projects } = useUserContext();
-  //const { itemStateAndPosition, setItemStateAndPosition, projectContext, setProjectContext, isMoved, touchedOrClicked, itemWasDragged } = useDragContext();
+	const { projects } = useUserContext();
+	const {
+		itemStateAndPosition,
+		setItemStateAndPosition,
+		movedRef,
+    itemWasDraggedRef,
+    touchedOrClickedRef
+	} = useDragContext();
+
 	const containerRef = useRef(null);
 	const dragItemsRef = useRef([]);
-	const [itemStateAndPosition, setItemStateAndPosition] = useState({});
 	const [projectContext, setProjectContext] = useState(projects);
-
-	let moved = false;
-	let touchedOrClicked = false;
-	let itemWasDragged = false;
 
 	let pixelSpacing = 90;
 	let verticalSpace = 100;
@@ -53,18 +55,20 @@ const DragZone = () => {
 
 	const handleMouseDown = (e, index, item) => {
 		e.preventDefault();
-		touchedOrClicked = true;
-		moved = false;
-		itemWasDragged = false;
+		touchedOrClickedRef.current = true;
+		//setTouchedOrClicked(true);
+		movedRef.current = false;
+		itemWasDraggedRef.current = false;
 
 		startDrag(e.clientX, e.clientY, index, item);
 	};
 
 	const handleTouchStart = (e, index, item) => {
 		e.preventDefault();
-		touchedOrClicked = true;
-		moved = false;
-		itemWasDragged = false;
+		touchedOrClickedRef.current = true;
+		//setTouchedOrClicked(true);
+		movedRef.current = false;
+		itemWasDraggedRef.current = false;
 
 		startDrag(e.touches[0].clientX, e.touches[0].clientY, index, item);
 	};
@@ -115,18 +119,18 @@ const DragZone = () => {
 
 		const handleMouseMove = (e) => {
 			e.preventDefault();
-			if (touchedOrClicked) {
-				itemWasDragged = true;
-				moved = true;
+			if (touchedOrClickedRef.current) {
+				itemWasDraggedRef.current = true;
+				movedRef.current = false;
 				isStateDragging(e.clientX, e.clientY);
 			}
 		};
 
 		const handleTouchMove = (e) => {
 			e.preventDefault();
-			if (touchedOrClicked) {
-				itemWasDragged = true;
-				moved = true;
+			if (touchedOrClickedRef.current) {
+				itemWasDraggedRef = true;
+				itemWasDraggedRef.current = true;
 				isStateDragging(e.touches[0].clientX, e.touches[0].clientY);
 			}
 		};
@@ -134,7 +138,7 @@ const DragZone = () => {
 		const handleMouseUp = (e) => {
 			e.preventDefault();
 
-			const wasDragged = itemWasDragged;
+			const wasDragged = itemWasDraggedRef;
 
 			setItemStateAndPosition((prevState) => {
 				const newState = { ...prevState };
@@ -144,16 +148,15 @@ const DragZone = () => {
 				return newState;
 			});
 
-			if (!wasDragged && touchedOrClicked) {
+			if (!wasDragged && touchedOrClickedRef) {
 				handleAddMetaDataHelper(e);
 			}
 
-			touchedOrClicked = false;
-			itemWasDragged = false;
+			itemWasDraggedRef.current = false;
 		};
 
 		const handleTouchEnd = (e) => {
-			const wasDragged = itemWasDragged;
+			const wasDragged = itemWasDraggedRef;
 
 			setItemStateAndPosition((prevState) => {
 				const newState = { ...prevState };
@@ -163,12 +166,11 @@ const DragZone = () => {
 				return newState;
 			});
 
-			if (!wasDragged && touchedOrClicked) {
+			if (!wasDragged && touchedOrClickedRef.current) {
 				handleAddMetaDataHelper(e);
 			}
 
-			touchedOrClicked = false;
-			itemWasDragged = false;
+			itemWasDraggedRef.current = false;
 		};
 
 		const handleDoubleClick = (e) => {
