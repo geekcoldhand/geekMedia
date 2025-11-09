@@ -10,7 +10,7 @@ const Nav = () => {
 				>
 					{" "}
 					<img
-						src={`${process.env.PUBLIC_URL}/media/youtube.svg`}
+						src={`${process.env.PUBLIC_URL}/images/Icons/youtube.svg`}
 						className="docker-links"
 						alt="logo"
 					/>
@@ -18,7 +18,7 @@ const Nav = () => {
 				<a href="https://www.instagram.com/gwach_shop/">
 					{" "}
 					<img
-						src={`${process.env.PUBLIC_URL}/media/instagram.svg`}
+						src={`${process.env.PUBLIC_URL}/images/Icons/instagram.svg`}
 						className="docker-links"
 						alt="logo"
 					/>
@@ -26,7 +26,7 @@ const Nav = () => {
 				<a href="https://github.com/geekcoldhand">
 					{" "}
 					<img
-						src={`${process.env.PUBLIC_URL}/media/github.svg`}
+						src={`${process.env.PUBLIC_URL}/images/Icons/github.svg`}
 						className="docker-links"
 						alt="logo"
 					/>
@@ -34,7 +34,7 @@ const Nav = () => {
 				<a href="https://www.linkedin.com/in/horatious-harris-41970a159/">
 					{" "}
 					<img
-						src={`${process.env.PUBLIC_URL}/media/linkedin.svg`}
+						src={`${process.env.PUBLIC_URL}/images/Icons/linkedin.svg`}
 						className="docker-links"
 						alt="logo"
 					/>

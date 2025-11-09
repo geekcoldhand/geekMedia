@@ -14,7 +14,7 @@ const projectData = [
 	{
 		name: "Who's App",
 		description: "Socket.io, Next.js, Vercel",
-		image: `${process.env.PUBLIC_URL}/imagesIcons/whoIcon.png`,
+		image: `${process.env.PUBLIC_URL}/images/Icons/whoIcon.png`,
 		link: "https://github.com/geekcoldhand/Whos-App",
 	},
 ];

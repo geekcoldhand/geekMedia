@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./LockScreen.css";
 import { UserIcon } from "../UserIcon/UserIcon";
 import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/UserContext";
-import softwareProjectData from "../../context/project_data";
-import designerProjectData from "../../context/fashion_designer_data";
-import stalkerProjectData from "../../context/stalker_data";
+import softwareProjectData from "../../data/project_data";
+import designerProjectData from "../../data/fashion_designer_data";
+import stalkerProjectData from "../../data/stalker_data";
 
 const users = [
 	{ id: 1, name: "Software", avatar: "" },

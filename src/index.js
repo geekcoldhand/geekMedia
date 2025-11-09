@@ -2,18 +2,16 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import {
 	createRoutesFromElements,
-	createBrowserRouter,
 	createHashRouter,
 	Route,
-	Router,
 	RouterProvider,
-	Routes,
 } from "react-router-dom";
 import "./index.css";
 import LockScreen from "./components/LockScreen/LockScreen";
 import Nav from "./components/Navigation/Nav";
 import DragZone from "./components/DragZone/DragZone";
 import UserProvider from "./context/UserContext";
+import {DragProvider} from "./context/DragContext";
 import SplashPage from "./components/SplashPage/SplashPage";
 import TopDock from "./components/Navigation/TopDock";
 
@@ -57,8 +55,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<UserProvider>
-			
-			<RouterProvider router={router} />
+			<DragProvider>
+				<RouterProvider router={router} />
+			</DragProvider>
 		</UserProvider>
 	</React.StrictMode>
 );
