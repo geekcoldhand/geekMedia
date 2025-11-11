@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { useUserContext } from "../../context/UserContext";
 import { useDragContext } from "../../context/DragContext";
+import data from "../../data/project_data";
 import "./DragZone.css";
-import Logo from "../Logo/Logo";
 
 const DragZone = () => {
-	const { projects } = useUserContext();
+	const  projects  = data;
 	const {
 		itemStateAndPosition,
 		setItemStateAndPosition,
