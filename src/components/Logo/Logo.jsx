@@ -1,4 +1,3 @@
-
 const Logo = ({ width, height }) => {
 	if (!width) {
 		width = "10rem";
@@ -13,7 +12,6 @@ const Logo = ({ width, height }) => {
 				className="atom-logo"
 				type="image/svg+xml"
 			></object>
-			
 		</div>
 	);
 };

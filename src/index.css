@@ -199,27 +199,33 @@ code {
 }
 
 .splash-container {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	background-color: #3d3d42;
+	background: var(--bg-gradient);
 	color: white;
 	font-size: 2rem;
 	text-align: center;
+	z-index: 100;
 }
 
 .splash-logo {
 	animation: Grow infinite 7s linear;
+	z-index: 102;
+}
+.splash-text{
+	font-size: 2rem;
 }
 .atom-logo {
 	clip-path: circle(50% at 50% 47%);
 }
-.center{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 @media (prefers-reduced-motion: no-preference) {
 	.App-logo {

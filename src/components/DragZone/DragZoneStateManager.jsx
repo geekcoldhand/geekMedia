@@ -1,73 +1,116 @@
 export class DragZoneStateManager {
-  static startDrag(e, index, item, context) {
-    const { setItemStateAndPosition, touchedOrClickedRef, itemWasDraggedRef, movedRef } = context;
+	static isStateDragging(
+		moveClientX,
+		moveClientY,
+		context,
+		dragItemsRef,
+		containerRef
+	) {
+		const { setItemStateAndPosition } = context;
 
-    e.preventDefault();
-    touchedOrClickedRef.current = true;
-    itemWasDraggedRef.current = false;
-    movedRef.current = false;
+		setItemStateAndPosition((prevState) => {
+			const newState = { ...prevState };
+			Object.keys(newState).forEach((key) => {
+				const state = newState[key];
+				if (state.isDragging) {
+					const item = dragItemsRef.current[Number(key)];
+					if (!item || !containerRef.current) return;
 
-    const moveClientX = e.clientX ?? e.touches?.[0]?.clientX;
-    const moveClientY = e.clientY ?? e.touches?.[0]?.clientY;
+					const x = moveClientX - state.offsetX;
+					const y = moveClientY - state.offsetY;
 
-    setItemStateAndPosition((prev) => ({
-      ...prev,
-      [index]: {
-        isDragging: true,
-        offsetX: moveClientX - item.offsetLeft + 2,
-        offsetY: moveClientY - item.offsetTop + 1,
-      },
-    }));
-  }
+					const maxX = containerRef.current.offsetWidth - item.offsetWidth;
+					const maxY = containerRef.current.offsetHeight - item.offsetHeight;
 
-  static moveDrag(e, context, dragItemsRef, containerRef) {
-    const { itemStateAndPosition, setItemStateAndPosition, touchedOrClickedRef, itemWasDraggedRef, movedRef } = context;
-    if (!touchedOrClickedRef.current) return;
+					item.style.left = `${Math.min(Math.max(x, 0), maxX)}px`;
+					item.style.top = `${Math.min(Math.max(y, 0), maxY)}px`;
+				}
+			});
+			return newState;
+		});
+	}
 
-    e.preventDefault();
-    itemWasDraggedRef.current = true;
-    movedRef.current = true;
+	static startDrag(e, index, item, context) {
+		const {
+			setItemStateAndPosition,
+			touchedOrClickedRef,
+			itemWasDraggedRef,
+			movedRef,
+		} = context;
 
-    const moveClientX = e.clientX ?? e.touches?.[0]?.clientX;
-    const moveClientY = e.clientY ?? e.touches?.[0]?.clientY;
+		e.preventDefault();
+		touchedOrClickedRef.current = true;
+		itemWasDraggedRef.current = false;
+		movedRef.current = false;
 
-    setItemStateAndPosition((prev) => {
-      const newState = { ...prev };
-      Object.keys(newState).forEach((key) => {
-        const state = newState[key];
-        if (state.isDragging) {
-          const item = dragItemsRef.current[Number(key)];
-          if (!item || !containerRef.current) return;
-          const x = moveClientX - state.offsetX;
-          const y = moveClientY - state.offsetY;
-          const maxX = containerRef.current.offsetWidth - item.offsetWidth;
-          const maxY = containerRef.current.offsetHeight - item.offsetHeight;
+		const moveClientX = e.clientX ?? e.touches?.[0]?.clientX;
+		const moveClientY = e.clientY ?? e.touches?.[0]?.clientY;
 
-          item.style.left = `${Math.min(Math.max(x, 0), maxX)}px`;
-          item.style.top = `${Math.min(Math.max(y, 0), maxY)}px`;
-        }
-      });
-      return newState;
-    });
-  }
+		setItemStateAndPosition((prev) => ({
+			...prev,
+			[index]: {
+				isDragging: true,
+				offsetX: moveClientX - item.offsetLeft + 2,
+				offsetY: moveClientY - item.offsetTop + 1,
+			},
+		}));
+	}
 
-  static endDrag(e, context, handleAddMetaDataHelper) {
-    const { setItemStateAndPosition, touchedOrClickedRef, itemWasDraggedRef } = context;
+	static moveDrag(e, context, dragItemsRef, containerRef) {
+		const {
+			itemStateAndPosition,
+			setItemStateAndPosition,
+			touchedOrClickedRef,
+			itemWasDraggedRef,
+			movedRef,
+		} = context;
+		if (!touchedOrClickedRef.current) return;
 
-    e.preventDefault();
-    const wasDragged = itemWasDraggedRef.current;
+		e.preventDefault();
+		itemWasDraggedRef.current = true;
+		movedRef.current = true;
 
-    setItemStateAndPosition((prev) => {
-      const newState = { ...prev };
-      Object.keys(newState).forEach((key) => {
-        newState[key].isDragging = false;
-      });
-      return newState;
-    });
+		const moveClientX = e.clientX ?? e.touches?.[0]?.clientX;
+		const moveClientY = e.clientY ?? e.touches?.[0]?.clientY;
 
-    if (!wasDragged && touchedOrClickedRef.current) handleAddMetaDataHelper(e);
+		setItemStateAndPosition((prev) => {
+			const newState = { ...prev };
+			Object.keys(newState).forEach((key) => {
+				const state = newState[key];
+				if (state.isDragging) {
+					const item = dragItemsRef.current[Number(key)];
+					if (!item || !containerRef.current) return;
+					const x = moveClientX - state.offsetX;
+					const y = moveClientY - state.offsetY;
+					const maxX = containerRef.current.offsetWidth - item.offsetWidth;
+					const maxY = containerRef.current.offsetHeight - item.offsetHeight;
 
-    touchedOrClickedRef.current = false;
-    itemWasDraggedRef.current = false;
-  }
+					item.style.left = `${Math.min(Math.max(x, 0), maxX)}px`;
+					item.style.top = `${Math.min(Math.max(y, 0), maxY)}px`;
+				}
+			});
+			return newState;
+		});
+	}
+
+	static endDrag(e, context, handleAddMetaDataHelper) {
+		const { setItemStateAndPosition, touchedOrClickedRef, itemWasDraggedRef } =
+			context;
+
+		e.preventDefault();
+		const wasDragged = itemWasDraggedRef.current;
+
+		setItemStateAndPosition((prev) => {
+			const newState = { ...prev };
+			Object.keys(newState).forEach((key) => {
+				newState[key].isDragging = false;
+			});
+			return newState;
+		});
+
+		if (!wasDragged && touchedOrClickedRef.current) handleAddMetaDataHelper(e);
+
+		touchedOrClickedRef.current = false;
+		itemWasDraggedRef.current = false;
+	}
 }

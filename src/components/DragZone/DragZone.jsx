@@ -2,23 +2,24 @@ import { useEffect, useRef, useState } from "react";
 import { useDragContext } from "../../context/DragContext";
 import data from "../../data/project_data";
 import "./DragZone.css";
+import { DragZoneStateManager } from "./DragZoneStateManager";
 
 const DragZone = () => {
-	const  projects  = data;
+	const projects = data;
 	const {
 		itemStateAndPosition,
 		setItemStateAndPosition,
 		movedRef,
-    itemWasDraggedRef,
-    touchedOrClickedRef
+		itemWasDraggedRef,
+		touchedOrClickedRef,
 	} = useDragContext();
 
 	const containerRef = useRef(null);
 	const dragItemsRef = useRef([]);
 	const [projectContext, setProjectContext] = useState(projects);
 
-	let pixelSpacing = 90;
-	let verticalSpace = 100;
+	let pixelSpacing = 80;
+	let verticalSpace = 90;
 
 	const loadDragItemToTop = (loadItem) => {
 		if (!loadItem) {
@@ -33,7 +34,7 @@ const DragZone = () => {
 
 		loadItem.style.top = `${verticalSpace}px`;
 		loadItem.style.left = "20px";
-		verticalSpace += 90;
+		verticalSpace += 50;
 	};
 
 	const populateBoxesWithDelay = () => {
@@ -49,62 +50,24 @@ const DragZone = () => {
 	const handleAddMetaDataHelper = (e) => {
 		e.preventDefault();
 		if (!e.target) return;
-		//console.log("handle meta data function", e.target.dataset.link);
 		window.open(e.target.dataset.link);
 	};
 
 	const handleMouseDown = (e, index, item) => {
-		e.preventDefault();
-		touchedOrClickedRef.current = true;
-		//setTouchedOrClicked(true);
-		movedRef.current = false;
-		itemWasDraggedRef.current = false;
-
-		startDrag(e.clientX, e.clientY, index, item);
+		DragZoneStateManager.startDrag(e, index, item, {
+			setItemStateAndPosition,
+			touchedOrClickedRef,
+			itemWasDraggedRef,
+			movedRef,
+		});
 	};
 
 	const handleTouchStart = (e, index, item) => {
-		e.preventDefault();
-		touchedOrClickedRef.current = true;
-		//setTouchedOrClicked(true);
-		movedRef.current = false;
-		itemWasDraggedRef.current = false;
-
-		startDrag(e.touches[0].clientX, e.touches[0].clientY, index, item);
-	};
-
-	const startDrag = (moveClientX, moveClientY, index, item) => {
-		setItemStateAndPosition((prevState) => ({
-			...prevState,
-			[index]: {
-				isDragging: true,
-				offsetX: moveClientX - item.offsetLeft + 2,
-				offsetY: moveClientY - item.offsetTop + 1,
-			},
-		}));
-	};
-
-	const isStateDragging = (moveClientX, moveClientY) => {
-		setItemStateAndPosition((prevState) => {
-			const newState = { ...prevState };
-			Object.keys(newState).forEach((key) => {
-				const state = newState[key];
-				if (state.isDragging) {
-					if (!containerRef.current) return;
-					const item = dragItemsRef.current[Number(key)];
-					if (!item) return;
-
-					const x = moveClientX - state.offsetX;
-					const y = moveClientY - state.offsetY;
-
-					const maxX = containerRef.current.offsetWidth - item.offsetWidth;
-					const maxY = containerRef.current.offsetHeight - item.offsetHeight;
-
-					item.style.left = `${Math.min(Math.max(x, 0), maxX)}px`;
-					item.style.top = `${Math.min(Math.max(y, 0), maxY)}px`;
-				}
-			});
-			return newState;
+		DragZoneStateManager.startDrag(e, index, item, {
+			setItemStateAndPosition,
+			touchedOrClickedRef,
+			itemWasDraggedRef,
+			movedRef,
 		});
 	};
 
@@ -122,55 +85,58 @@ const DragZone = () => {
 			if (touchedOrClickedRef.current) {
 				itemWasDraggedRef.current = true;
 				movedRef.current = false;
-				isStateDragging(e.clientX, e.clientY);
+				DragZoneStateManager.isStateDragging(
+					e.clientX,
+					e.clientY,
+					{
+						setItemStateAndPosition,
+					},
+					dragItemsRef,
+					containerRef
+				);
 			}
 		};
 
 		const handleTouchMove = (e) => {
 			e.preventDefault();
 			if (touchedOrClickedRef.current) {
-				itemWasDraggedRef = true;
 				itemWasDraggedRef.current = true;
-				isStateDragging(e.touches[0].clientX, e.touches[0].clientY);
+				movedRef.current = true;
+				const touch = e.touches[0];
+				DragZoneStateManager.isStateDragging(
+					touch.clientX,
+					touch.clientY,
+					{
+						setItemStateAndPosition,
+					},
+					dragItemsRef,
+					containerRef
+				);
 			}
 		};
 
 		const handleMouseUp = (e) => {
-			e.preventDefault();
-
-			const wasDragged = itemWasDraggedRef;
-
-			setItemStateAndPosition((prevState) => {
-				const newState = { ...prevState };
-				Object.keys(newState).forEach((key) => {
-					newState[key].isDragging = false;
-				});
-				return newState;
-			});
-
-			if (!wasDragged && touchedOrClickedRef) {
-				handleAddMetaDataHelper(e);
-			}
-
-			itemWasDraggedRef.current = false;
+			DragZoneStateManager.endDrag(
+				e,
+				{
+					setItemStateAndPosition,
+					touchedOrClickedRef,
+					itemWasDraggedRef,
+				},
+				handleAddMetaDataHelper
+			);
 		};
 
 		const handleTouchEnd = (e) => {
-			const wasDragged = itemWasDraggedRef;
-
-			setItemStateAndPosition((prevState) => {
-				const newState = { ...prevState };
-				Object.keys(newState).forEach((key) => {
-					newState[key].isDragging = false;
-				});
-				return newState;
-			});
-
-			if (!wasDragged && touchedOrClickedRef.current) {
-				handleAddMetaDataHelper(e);
-			}
-
-			itemWasDraggedRef.current = false;
+			DragZoneStateManager.endDrag(
+				e,
+				{
+					setItemStateAndPosition,
+					touchedOrClickedRef,
+					itemWasDraggedRef,
+				},
+				handleAddMetaDataHelper
+			);
 		};
 
 		const handleDoubleClick = (e) => {
@@ -214,7 +180,7 @@ const DragZone = () => {
 				}
 			});
 		};
-	}, [projectContext]);
+	}, []);
 
 	return (
 		<div id="container" ref={containerRef} className="draggable-container">
@@ -222,10 +188,10 @@ const DragZone = () => {
 				<button className="macos-buttons red"></button>
 				<button className="macos-buttons green"></button>
 				<button className="macos-buttons yellow"></button>
-				<span> </span>
+
 				<span className="macos-text"> Projects</span>
 			</div>
-			
+
 			{projectContext.map((project, index) => (
 				<div
 					key={index}

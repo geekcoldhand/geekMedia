@@ -1,15 +1,11 @@
 import React from "react";
+import Logo from "../Logo/Logo";
 
 const SplashPage = () => {
 	return (
 		<div className="splash-container">
 			<div className="splash-logo">
-				<img
-					src={`${process.env.PUBLIC_URL}/images/trioLogo.svg`}
-					width={300}
-					height={300}
-					alt="logo"
-				/>
+				<span className="splash-text orbit-font">Horatious Harris</span>
 			</div>
 		</div>
 	);

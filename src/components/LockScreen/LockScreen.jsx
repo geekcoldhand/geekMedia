@@ -49,17 +49,16 @@ export default function LockScreen() {
 					<hr className="login-panel-hr"></hr>
 
 					<div className="user-icon-container">
-						<Logo width="10rem" height="10rem" />
 						<div className="center">
 							<span className="user-name orbit-font">Horatious Harris II</span>
 						</div>
 						<div className="center">
 							<Link to="/home">
 								<button
-									className="login-button orbit-font"
+									className="login-button bit-font"
 									onClick={handleLogin}
 								>
-									Login
+									Enter
 								</button>
 							</Link>
 						</div>
