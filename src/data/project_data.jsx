@@ -17,6 +17,12 @@ const projectData = [
 		image: `${process.env.PUBLIC_URL}/images/Icons/whoIcon.png`,
 		link: "https://github.com/geekcoldhand/Whos-App",
 	},
+	{
+		name: "Rhinehart",
+		description: "Oracle, Next.js, ",
+		image: `${process.env.PUBLIC_URL}/images/Icons/rhinehart.png`,
+		link: "https://rome-a4euy1vqx-rhineharts-projects.vercel.app",
+	}
 ];
 
 export default projectData;

@@ -7,7 +7,7 @@ import { useUserContext } from "../../context/UserContext";
 import softwareProjectData from "../../data/project_data";
 import designerProjectData from "../../data/fashion_designer_data";
 import stalkerProjectData from "../../data/stalker_data";
-
+import Logo from "../Logo/Logo";
 const users = [
 	{ id: 1, name: "Software", avatar: "" },
 	{ id: 2, name: "Fashion", avatar: "" },
@@ -44,46 +44,32 @@ export default function LockScreen() {
 		<div className="macosx-bg">
 			<div className="login-panel-container">
 				<div className="login-panel">
-					<p className="login-panel-title">Welcome! </p>
-					<img
-						src={`${process.env.PUBLIC_URL}/images/Icons/macLogo.png`}
-						alt=""
-						className="apple-logo-small"
-					/>
-					<p className="login-panel-title">
-						Choose a domain to learn more about me
-					</p>
+					<p className="login-panel-title bit-font">Welcome </p>
 
 					<hr className="login-panel-hr"></hr>
-					<div className="user-icons-container">
-						{users.map((user) => (
-							<UserIcon
-								key={user.id}
-								name={user.name}
-								avatar={user.avatar}
-								isSelected={selectedUser === user.id}
-								onClick={() => setSelectedUser(user.id)}
-							/>
-						))}
-					</div>
 
-					{selectedUser && (
-						<div className="login-button-container">
+					<div className="user-icon-container">
+						<Logo width="10rem" height="10rem" />
+						<div className="center">
+							<span className="user-name orbit-font">Horatious Harris II</span>
+						</div>
+						<div className="center">
 							<Link to="/home">
-								<button className="login-button" onClick={handleLogin}>
+								<button
+									className="login-button orbit-font"
+									onClick={handleLogin}
+								>
 									Login
 								</button>
 							</Link>
 						</div>
-					)}
-					<hr className="login-panel-hr"></hr>
+					</div>
 
-					{!selectedUser && (
-						<p className="select-user-text">Horatious Harris II</p>
-					)}
+					<hr className="login-panel-hr"></hr>
+					<span className="system-info bit-font">{month}</span>
 				</div>
 
-				<div className="system-info">Geek OS X 10.4 {month}</div>
+				<div className="system-info bit-font">GeekOS X </div>
 			</div>
 		</div>
 	);

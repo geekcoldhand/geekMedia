@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useUserContext } from "../../context/UserContext";
 import { useDragContext } from "../../context/DragContext";
 import "./DragZone.css";
+import Logo from "../Logo/Logo";
 
 const DragZone = () => {
 	const { projects } = useUserContext();
@@ -225,7 +226,7 @@ const DragZone = () => {
 				<span> </span>
 				<span className="macos-text"> Projects</span>
 			</div>
-
+			
 			{projectContext.map((project, index) => (
 				<div
 					key={index}

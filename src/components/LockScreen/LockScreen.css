@@ -1,175 +1,124 @@
-
-.mac-background {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, #1a64a0, #0a4c8a);
-  background: linear-gradient(to bottom, #a6a8aa, #a4a5a6);
-  /* Vertical pinstripes */
-  background-image: linear-gradient(to bottom, #1a64a0, #0a4c8a),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 1px,
-      rgba(200, 200, 200, 0.03) 1px,
-      rgba(200, 200, 200, 0.03) 2px
-    );
-}
-.macosx-bg-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -55%);
-  width: 640px;
-  max-width: 90vw;
-  opacity: 0.18;
-  filter: drop-shadow(0 10px 48px rgba(55,40,110,0.22));
-  z-index: 1;
-  pointer-events: none;
-  user-select: none;
-}
 .macosx-bg {
-    min-height: 100vh;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .macosx-bg {
-    position: relative;
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    /* Deep blue vertical gradient with pinstripes */
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.045) 0px,
-        rgba(255,255,255,0.045) 1px,
-        transparent 1px,
-        transparent 15px
-      ),
-      linear-gradient(180deg, #21406a 0%, #345b90 100%);
-  }
-  
-  .mac-login-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  
-  .apple-logo-large {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.2;
-  }
-  
-  .logo-container {
-    width: 500px;
-    height: 500px;
-    position: relative;
-  }
-  
-  .logo-container img {
-    opacity: 0.7;
-  }
-  
-  .login-panel-container {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .login-panel-title{
-    font-size: 1.2rem;
-    color: whitesmoke;
-    font-family: "Lucida Grande", sans-serif;
-    text-align: center;
-  }
-  
-  .apple-logo-small {
-    height: 4rem;
-    width: auto;
-    animation: Wiggle infinite .4s linear;
-  }
-  
-  .apple-logo-small img {
-    opacity: 0.9;
-  }
-  
-  .login-panel {
-    width: 87vw;
-    max-width: 700px;
-    height: 68vh;
-    border-radius: 16px;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.308);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-  
+	position: relative;
+	min-height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	/* Deep blue vertical gradient with pinstripes */
+	background: var(--bg-gradient);
+}
 
-  
- 
+.mac-login-container {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.apple-logo-large {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0.2;
+}
+
+.logo-container {
+	width: 500px;
+	height: 500px;
+	position: relative;
+}
+
+.logo-container img {
+	opacity: 0.7;
+}
+
+.login-panel-container {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.login-panel-title {
+	text-align: center;
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 4rem;
+	color: var(--text);
+}
+
+.login-panel {
+	width: 87vw;
+	max-width: 700px;
+	height: 68vh;
+	border-radius: 16px;
+	padding: 64px 32px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: linear-gradient(
+		120deg,
+		rgba(255, 255, 255, 0.346) 0%,
+		rgba(100, 100, 100, 0.127) 100%
+	);
+	backdrop-filter: blur(10px);
+	box-shadow: 0 0 20px rgba(255, 255, 255, 0.2),
+		0 0 30px rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.183);
+}
+
 .login-button-container {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .login-button {
-    border-radius: 20px;
-    padding: 0 32px;
-    height: 32px;
-    font-size: 14px;
-    font-weight: 500;
-    background: linear-gradient(to bottom, #4b91d1, #1a64a0);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    color: white;
-    cursor: pointer;
-    font-family: "Lucida Grande", sans-serif;
-  }
-  
-  .login-button:hover {
-    background: linear-gradient(to bottom, #5aa0e0, #2a74b0);
-  }
-  
-  .select-user-text {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
-    font-family: "Lucida Grande", sans-serif;
-  }
-  .login-panel-hr{
-    width: 100%;
-    border: none;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.2)
-  }
-  .system-info {
-    position: absolute;
-    bottom: 47px;
-    right: 16px;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 12px;
-    font-family: "Lucida Grande", sans-serif;
-  }
-  
-  @keyframes Wiggle {
-   
-  }
-  
+	display: flex;
+	justify-content: flex-end;
+}
+
+.login-button {
+	border-radius: 2rem;
+	padding: 0 32px;
+	height: 32px;
+	font-size: 14px;
+	font-weight: 500;
+	background: var(--secondary);
+	border: 1px solid rgba(255, 255, 255, 0.186);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	color: var(--text);
+	cursor: pointer;
+}
+.user-icon-container {
+	padding-block: 2rem;
+}
+.user-name {
+	color: var(--text);
+	font-weight: 500;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+	line-height: 4rem;
+	font-weight: 700;
+}
+
+.login-button:hover {
+	background: linear-gradient(
+		120deg,
+		var(--secondary) 0%,
+		rgb(120, 116, 116) 100%
+	);
+}
+
+.login-panel-hr {
+	width: 100%;
+	border: none;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+.system-info {
+	position: absolute;
+	bottom: 47px;
+	right: 16px;
+	color: var(--text);
+	font-size: 0.75rem;
+}
