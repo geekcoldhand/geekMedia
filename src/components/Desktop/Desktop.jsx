@@ -5,8 +5,7 @@ import "./Desktop.css";
 import { DragZoneStateManager } from "./DragZoneStateManager";
 import { UserIcon } from "../DesktopIcons/DesktopIcon";
 import { useWindowContext } from "../../context/WindowContext";
-import { use } from "react";
-
+import Window from "./Window";	
 const DragZone = () => {
 	const projects = data;
 	const {
@@ -43,7 +42,7 @@ const DragZone = () => {
 				);
 				break;
 			case "Terminal":
-				setDesktopContent(<div className="terminal-window">Terminal here</div>);
+				setDesktopContent(<Window> Terminal here</Window>);
 				break;
 			default:
 				setDesktopContent(
@@ -60,10 +59,21 @@ const DragZone = () => {
 				);
 		}
 	};
-	
+
 	useEffect(() => {
 		setDesktop();
-	}, [app]);
+		if (app === "Projects") {
+			// Reset drag refs
+			dragItemsRef.current = [];
+
+			// Wait until React commits DOM
+			const timer = setTimeout(() => {
+				populateBoxesWithDelay();
+			}, 50);
+
+			return () => clearTimeout(timer);
+		}
+	}, [app, projectContext]);
 
 	const loadDragItemToTop = (loadItem) => {
 		if (!loadItem) {
@@ -222,7 +232,7 @@ const DragZone = () => {
 				}
 			});
 		};
-	}, []);
+	}, [app, projectContext]);
 
 	return (
 		<div id="container" ref={containerRef} className="draggable-container">

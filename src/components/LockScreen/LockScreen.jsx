@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import "./LockScreen.css";
 import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { useWindowContext } from "../../context/WindowContext";
-import softwareProjectData from "../../data/project_data";
-import designerProjectData from "../../data/fashion_designer_data";
-import stalkerProjectData from "../../data/stalker_data";
+
 const users = [
 	{ id: 1, name: "Software", avatar: "" },
 	{ id: 2, name: "Fashion", avatar: "" },
@@ -14,29 +12,15 @@ const users = [
 const month = new Date().toDateString();
 export default function LockScreen() {
 	const navigate = useNavigate();
-	const { user, setUser, setProjects } = useWindowContext();
 	const [selectedUser, setSelectedUser] = useState(null);
 
 	const handleLogin = (e) => {
 		e.preventDefault();
-		setUser(selectedUser);
-		switch (selectedUser) {
-			case 1:
-				setProjects(softwareProjectData);
-				break;
-			case 2:
-				setProjects(designerProjectData);
-				break;
-			case 3:
-				setProjects(stalkerProjectData);
-				break;
-			default:
-				break;
-		}
+		
 
 		navigate("/home");
 	};
-	useEffect(() => {}, [user]);
+
 
 	return (
 		<div className="macosx-bg">

@@ -13,35 +13,35 @@ const Nav = () => {
 				{" "}
 				<img
 					id="Finder"
-					src={`${process.env.PUBLIC_URL}/images/Icons/macLogo.png`}
+					src={`${process.env.PUBLIC_URL}/images/Icons/finder.png`}
 					className="docker-links"
 					alt="logo"
 					onClick={(e) => handleApplicationClick(e)}
 				/>{" "}
 				<img
 					id="Paint"
-					src={`${process.env.PUBLIC_URL}/images/Icons/instagram.svg`}
+					src={`${process.env.PUBLIC_URL}/images/Icons/script.png`}
 					className="docker-links"
 					alt="logo"
 					onClick={(e) => handleApplicationClick(e)}
 				/>{" "}
 				<img
-					id="Calculator"
-					src={`${process.env.PUBLIC_URL}/images/Icons/github.svg`}
+					id="Launchpad"
+					src={`${process.env.PUBLIC_URL}/images/Icons/launchpad.png`}
 					className="docker-links"
 					alt="logo"
 					onClick={(e) => handleApplicationClick(e)}
 				/>{" "}
 				<img
 					id="Message"
-					src={`${process.env.PUBLIC_URL}/images/Icons/linkedin.svg`}
+					src={`${process.env.PUBLIC_URL}/images/Icons/imessages.png`}
 					className="docker-links"
 					alt="logo"
 					onClick={(e) => handleApplicationClick(e)}
 				/>{" "}
 				<img
 					id="Terminal"
-					src={`${process.env.PUBLIC_URL}/images/Icons/Folder.svg`}
+					src={`${process.env.PUBLIC_URL}/images/Icons/terminal.png`}
 					className="docker-links"
 					alt="logo"
 					onClick={(e) => handleApplicationClick(e)}
