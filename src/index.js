@@ -10,7 +10,7 @@ import "./index.css";
 import LockScreen from "./components/LockScreen/LockScreen";
 import Nav from "./components/Navigation/Nav";
 import DragZone from "./components/Desktop/Desktop";
-import UserProvider from "./context/WindowContext";
+import WindowProvider from "./context/WindowContext";
 import { DragProvider } from "./context/DragContext";
 import SplashPage from "./components/SplashPage/SplashPage";
 import TopDock from "./components/Navigation/TopDock";
@@ -54,10 +54,10 @@ const router = createHashRouter(
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<UserProvider>
+		<WindowProvider>
 			<DragProvider>
 				<RouterProvider router={router} />
 			</DragProvider>
-		</UserProvider>
+		</WindowProvider>
 	</React.StrictMode>
 );

@@ -1,31 +1,28 @@
 import React, { createContext, useContext, useState } from "react";
 
+const WindowContext = createContext();
 
-const UserContext = createContext();
-
-export function useUserContext() {
-  const context = useContext(UserContext);
-  if (context === undefined) {
-    throw new Error('useUserContext must be used within a UserProvider');
-  }
-  return context;
+export function useWindowContext() {
+	const context = useContext(WindowContext);
+	if (context === undefined) {
+		throw new Error("useUserContext must be used within a WindowProvider");
+	}
+	return context;
 }
-export function UserProvider({ children }) {
-    const [user, setUser] = useState("");
-    const [projects, setProjects] = useState([]);
-  
-  const value = {
-    user,
-    setUser,
-    projects,
-    setProjects
-  };
-  
-  return (
-    <UserContext.Provider value={value}>
-      {children}
-    </UserContext.Provider>
-  );
+export function WindowProvider({ children }) {
+	const [app, setApp] = useState("");
+	const [projects, setProjects] = useState([]);
+
+	const value = {
+		app,
+		setApp,
+		projects,
+		setProjects,
+	};
+
+	return (
+		<WindowContext.Provider value={value}>{children}</WindowContext.Provider>
+	);
 }
 
-export default UserProvider;
+export default WindowProvider;

@@ -76,7 +76,7 @@ code {
 .nav-bar a:hover {
 	transform: scale(1.15);
 }
-.nav-bar a img {
+.docker-links {
 	width: 30px;
 	height: 30px;
 }

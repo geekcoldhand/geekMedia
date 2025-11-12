@@ -1,5 +1,4 @@
-import React from "react";
-import "./UserIcon.css";
+import "./DesktopIcon.css";
 
 export function UserIcon({ dragItemsRef, index, project }) {
 	return (

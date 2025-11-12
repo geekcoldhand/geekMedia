@@ -3,7 +3,9 @@ import { useDragContext } from "../../context/DragContext";
 import data from "../../data/project_data";
 import "./Desktop.css";
 import { DragZoneStateManager } from "./DragZoneStateManager";
-import { UserIcon } from "../DesktopIcons/UserIcon";
+import { UserIcon } from "../DesktopIcons/DesktopIcon";
+import { useWindowContext } from "../../context/WindowContext";
+import { use } from "react";
 
 const DragZone = () => {
 	const projects = data;
@@ -14,13 +16,54 @@ const DragZone = () => {
 		itemWasDraggedRef,
 		touchedOrClickedRef,
 	} = useDragContext();
+	const { app, setApp } = useWindowContext();
 
 	const containerRef = useRef(null);
 	const dragItemsRef = useRef([]);
+	const [desktopContent, setDesktopContent] = useState(<div></div>);
 	const [projectContext, setProjectContext] = useState(projects);
 
 	let pixelSpacing = 80;
 	let verticalSpace = 90;
+
+	const setDesktop = () => {
+		switch (app) {
+			case "Projects":
+				setDesktopContent(
+					<div className="desktop-projects">
+						{projectContext.map((project, index) => (
+							<UserIcon
+								key={index}
+								dragItemsRef={dragItemsRef}
+								index={index}
+								project={project}
+							/>
+						))}
+					</div>
+				);
+				break;
+			case "Terminal":
+				setDesktopContent(<div className="terminal-window">Terminal here</div>);
+				break;
+			default:
+				setDesktopContent(
+					<div className="desktop-projects">
+						{projectContext.map((project, index) => (
+							<UserIcon
+								key={index}
+								dragItemsRef={dragItemsRef}
+								index={index}
+								project={project}
+							/>
+						))}
+					</div>
+				);
+		}
+	};
+	
+	useEffect(() => {
+		setDesktop();
+	}, [app]);
 
 	const loadDragItemToTop = (loadItem) => {
 		if (!loadItem) {
@@ -35,7 +78,7 @@ const DragZone = () => {
 
 		loadItem.style.top = `${verticalSpace}px`;
 		loadItem.style.left = "20px";
-		verticalSpace += 50;
+		verticalSpace += 60;
 	};
 
 	const populateBoxesWithDelay = () => {
@@ -55,6 +98,8 @@ const DragZone = () => {
 	};
 
 	const handleMouseDown = (e, index, item) => {
+		console.log("application selected: , ", app);
+
 		DragZoneStateManager.startDrag(e, index, item, {
 			setItemStateAndPosition,
 			touchedOrClickedRef,
@@ -181,14 +226,7 @@ const DragZone = () => {
 
 	return (
 		<div id="container" ref={containerRef} className="draggable-container">
-			{projectContext.map((project, index) => (
-				<UserIcon
-					key={index}
-					dragItemsRef={dragItemsRef}
-					index={index}
-					project={project}
-				/>
-			))}
+			{desktopContent}
 		</div>
 	);
 };

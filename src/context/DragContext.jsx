@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useRef } from "react";
-import { useUserContext } from "./WindowContext";
+import { useWindowContext } from "./WindowContext";
 const DragContext = createContext();
 
 export function useDragContext() {
@@ -10,7 +10,7 @@ export function useDragContext() {
 	return context;
 }
 export function DragProvider({ children }) {
-	const { projects } = useUserContext();
+	const { projects } = useWindowContext();
 
 	const [itemStateAndPosition, setItemStateAndPosition] = useState({});
 	const [projectContext, setProjectContext] = useState(projects);

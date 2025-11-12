@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import "./LockScreen.css";
-import { UserIcon } from "../DesktopIcons/UserIcon";
 import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
-import { useUserContext } from "../../context/WindowContext";
+import { useWindowContext } from "../../context/WindowContext";
 import softwareProjectData from "../../data/project_data";
 import designerProjectData from "../../data/fashion_designer_data";
 import stalkerProjectData from "../../data/stalker_data";
-import Logo from "../Logo/Logo";
 const users = [
 	{ id: 1, name: "Software", avatar: "" },
 	{ id: 2, name: "Fashion", avatar: "" },
@@ -16,7 +14,7 @@ const users = [
 const month = new Date().toDateString();
 export default function LockScreen() {
 	const navigate = useNavigate();
-	const { user, setUser, setProjects } = useUserContext();
+	const { user, setUser, setProjects } = useWindowContext();
 	const [selectedUser, setSelectedUser] = useState(null);
 
 	const handleLogin = (e) => {
