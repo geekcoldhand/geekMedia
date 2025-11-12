@@ -9,9 +9,9 @@ import {
 import "./index.css";
 import LockScreen from "./components/LockScreen/LockScreen";
 import Nav from "./components/Navigation/Nav";
-import DragZone from "./components/DragZone/DragZone";
-import UserProvider from "./context/UserContext";
-import {DragProvider} from "./context/DragContext";
+import DragZone from "./components/Desktop/Desktop";
+import UserProvider from "./context/WindowContext";
+import { DragProvider } from "./context/DragContext";
 import SplashPage from "./components/SplashPage/SplashPage";
 import TopDock from "./components/Navigation/TopDock";
 
@@ -34,8 +34,8 @@ const App = () => {
 			<div id="splash" className="splash-container">
 				<SplashPage />
 			</div>
+			<TopDock />
 			<div id="main-content" className="App hidden">
-				<TopDock />
 				<DragZone />
 				<Nav />
 			</div>

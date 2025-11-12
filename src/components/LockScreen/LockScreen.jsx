@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "./LockScreen.css";
-import { UserIcon } from "../UserIcon/UserIcon";
+import { UserIcon } from "../DesktopIcons/UserIcon";
 import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
-import { useUserContext } from "../../context/UserContext";
+import { useUserContext } from "../../context/WindowContext";
 import softwareProjectData from "../../data/project_data";
 import designerProjectData from "../../data/fashion_designer_data";
 import stalkerProjectData from "../../data/stalker_data";
@@ -54,10 +54,7 @@ export default function LockScreen() {
 						</div>
 						<div className="center">
 							<Link to="/home">
-								<button
-									className="login-button bit-font"
-									onClick={handleLogin}
-								>
+								<button className="login-button bit-font" onClick={handleLogin}>
 									Enter
 								</button>
 							</Link>

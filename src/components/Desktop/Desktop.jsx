@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useDragContext } from "../../context/DragContext";
 import data from "../../data/project_data";
-import "./DragZone.css";
+import "./Desktop.css";
 import { DragZoneStateManager } from "./DragZoneStateManager";
+import { UserIcon } from "../DesktopIcons/UserIcon";
 
 const DragZone = () => {
 	const projects = data;
@@ -84,7 +85,7 @@ const DragZone = () => {
 			e.preventDefault();
 			if (touchedOrClickedRef.current) {
 				itemWasDraggedRef.current = true;
-				movedRef.current = false;
+				movedRef.current = true;
 				DragZoneStateManager.isStateDragging(
 					e.clientX,
 					e.clientY,
@@ -139,10 +140,6 @@ const DragZone = () => {
 			);
 		};
 
-		const handleDoubleClick = (e) => {
-			handleAddMetaDataHelper(e);
-		};
-
 		container?.addEventListener("mousemove", handleMouseMove);
 		container?.addEventListener("touchmove", handleTouchMove);
 		container?.addEventListener("mouseup", handleMouseUp);
@@ -184,29 +181,13 @@ const DragZone = () => {
 
 	return (
 		<div id="container" ref={containerRef} className="draggable-container">
-			<div className="macos-button-box">
-				<button className="macos-buttons red"></button>
-				<button className="macos-buttons green"></button>
-				<button className="macos-buttons yellow"></button>
-
-				<span className="macos-text"> Projects</span>
-			</div>
-
 			{projectContext.map((project, index) => (
-				<div
+				<UserIcon
 					key={index}
-					className="draggable-item"
-					ref={(el) => (dragItemsRef.current[index] = el)}
-					style={{ position: "absolute" }}
-				>
-					<img
-						src={project.image}
-						alt={project.title || `Project ${index + 1}`}
-						className="box project-image"
-						data-link={project.link}
-					/>
-					{project.name && <div className="project-title">{project.name}</div>}
-				</div>
+					dragItemsRef={dragItemsRef}
+					index={index}
+					project={project}
+				/>
 			))}
 		</div>
 	);

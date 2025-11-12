@@ -82,7 +82,7 @@
 	height: 32px;
 	font-size: 14px;
 	font-weight: 500;
-	background: var(--secondary);
+	background: var(--primary);
 	border: 1px solid rgba(255, 255, 255, 0.186);
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 	color: var(--text);
@@ -115,7 +115,7 @@
 }
 .system-info {
 	position: absolute;
-	bottom: 47px;
+	bottom: 25px;
 	right: 16px;
 	color: var(--text);
 	font-size: 0.75rem;

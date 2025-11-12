@@ -10,7 +10,7 @@ const Nav = () => {
 				>
 					{" "}
 					<img
-						src={`${process.env.PUBLIC_URL}/images/Icons/youtube.svg`}
+						src={`${process.env.PUBLIC_URL}/images/Icons/macLogo.png`}
 						className="docker-links"
 						alt="logo"
 					/>
